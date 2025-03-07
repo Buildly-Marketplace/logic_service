@@ -1,7 +1,12 @@
 from rest_framework import viewsets
-from .models import ExampleModel
-from .serializers import ExampleSerializer
+from .models import Restaurant, Menu
+from .serializers import RestaurantSerializer, MenuSerializer
 
-class ExampleViewSet(viewsets.ModelViewSet):
-    queryset = ExampleModel.objects.all()
-    serializer_class = ExampleSerializer
+class RestaurantViewSet(viewsets.ModelViewSet):
+    queryset = Restaurant.objects.all()
+    serializer_class = RestaurantSerializer
+
+class MenuViewSet(viewsets.ModelViewSet):
+    queryset = Menu.objects.all()
+    serializer_class = MenuSerializer
+

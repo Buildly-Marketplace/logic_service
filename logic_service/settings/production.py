@@ -15,6 +15,10 @@ MIDDLEWARE = MIDDLEWARE_CORS + MIDDLEWARE
 
 CORS_ORIGIN_WHITELIST = os.environ['CORS_ORIGIN_WHITELIST'].split(',')
 
+INSTALLED_APPS_DJANGO = INSTALLED_APPS_DJANGO + [
+    'django.contrib.postgres',
+]
+
 
 # Security
 # https://docs.djangoproject.com/en/2.0/ref/settings/#allowed-hosts

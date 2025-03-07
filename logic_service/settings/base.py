@@ -37,17 +37,12 @@ INSTALLED_APPS_DJANGO = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.postgres',
 ]
 
 INSTALLED_APPS_THIRD_PARTIES = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
-
-    # Health check
-    'health_check',
-    'health_check.db',
 
     # Swagger/OpenAPI
     'drf_yasg',

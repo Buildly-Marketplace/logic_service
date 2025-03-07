@@ -1,20 +1,23 @@
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include, re_path
+from django.conf import settings
 
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from rest_framework import routers
+from logic.views import RestaurantViewSet, MenuViewSet
 
 router = routers.SimpleRouter()
-router.register(r'logic', LogicViewSet)
-
+router.register(r'restaurants', RestaurantViewSet)
+router.register(r'menus', MenuViewSet)  
 
 schema_view = get_schema_view(
     openapi.Info(
         title="Logic Service API",
         default_version='latest',
-        description="A microservice for managing contacts and appointments.",
+        description="A Buildly RAD Core Compatible Logic Module/microservice.",
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
@@ -27,8 +30,11 @@ urlpatterns = [
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0),
          name='schema-swagger-ui'),
     path('admin/', admin.site.urls),
-    path('health_check/', include('health_check.urls')),
-    path(r'', include('logic.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
+
+if settings.DEBUG:
+    from debug_toolbar.toolbar import debug_toolbar_urls
+
+    urlpatterns = urlpatterns + debug_toolbar_urls()
