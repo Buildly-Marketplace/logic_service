@@ -1,10 +1,8 @@
 ## Purpose
-_Short description of the problem or feature_
+Describe shortly the problem or feature
 
 ## Approach
-_How does this change address the problem?_
+How does this change address the problem?
 
-### Further Info
-Ticket number: #000
- 
-@mentions of the person or team responsible for reviewing proposed changes.
+
+Related ticket: #999
