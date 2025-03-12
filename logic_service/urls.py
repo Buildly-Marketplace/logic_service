@@ -33,6 +33,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('health_check/', view=health_check, name='health_check'),
     path('', view=health_check, name='health_check'), # Default URL
+    path('', include(router.urls)),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
