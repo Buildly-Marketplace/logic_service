@@ -39,6 +39,9 @@ urlpatterns = [
 urlpatterns += staticfiles_urlpatterns()
 
 if settings.DEBUG:
-    from debug_toolbar.toolbar import debug_toolbar_urls
-
-    urlpatterns = urlpatterns + debug_toolbar_urls()
+    try:
+        from debug_toolbar.toolbar import debug_toolbar_urls
+        urlpatterns = urlpatterns + debug_toolbar_urls()
+    except ImportError:
+        # debug_toolbar is not installed, skip debug URLs
+        pass
